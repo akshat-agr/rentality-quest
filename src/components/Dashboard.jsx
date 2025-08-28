@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Trophy, Target, Flame, Zap, HandShake, TrendingUp, Clock, Activity } from 'lucide-react';
+import { Trophy, Target, Flame, Zap, Handshake, TrendingUp, Clock, Activity } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import { Button } from '@/components/ui/button';
@@ -13,7 +13,7 @@ const iconMap = {
   target: Target,
   flame: Flame,
   zap: Zap,
-  handshake: HandShake
+  handshake: Handshake
 };
 
 const Dashboard = () => {
