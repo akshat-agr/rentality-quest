@@ -8,35 +8,70 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Industrial Dark Theme */
+    --background: 218 15% 12%;
+    --foreground: 0 0% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 218 20% 18%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 218 20% 18%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Caterpillar Yellow Primary */
+    --primary: 45 100% 51%;
+    --primary-foreground: 218 15% 12%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 218 25% 25%;
+    --secondary-foreground: 0 0% 90%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 218 20% 22%;
+    --muted-foreground: 220 15% 65%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 45 90% 55%;
+    --accent-foreground: 218 15% 12%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Status Colors */
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 98%;
+    
+    --warning: 38 92% 50%;
+    --warning-foreground: 218 15% 12%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 218 20% 28%;
+    --input: 218 20% 22%;
+    --ring: 45 100% 51%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Gamification Colors */
+    --achievement-gold: 45 100% 51%;
+    --achievement-silver: 0 0% 75%;
+    --achievement-bronze: 30 100% 40%;
+    
+    /* Progress Colors */
+    --progress-bg: 218 25% 25%;
+    --progress-excellent: 142 76% 36%;
+    --progress-good: 45 100% 51%;
+    --progress-average: 38 92% 50%;
+    --progress-poor: 0 84% 60%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(45 100% 51%), hsl(38 92% 50%));
+    --gradient-card: linear-gradient(145deg, hsl(218 25% 25%), hsl(218 20% 18%));
+    --gradient-success: linear-gradient(135deg, hsl(142 76% 36%), hsl(142 76% 46%));
+    
+    /* Shadows */
+    --shadow-glow: 0 0 20px hsl(45 100% 51% / 0.3);
+    --shadow-card: 0 8px 32px hsl(218 15% 8% / 0.4);
+    --shadow-achievement: 0 4px 20px hsl(45 100% 51% / 0.5);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +135,144 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground overflow-x-hidden;
+  }
+}
+
+@layer components {
+  /* Achievement Badge Styles */
+  .achievement-badge {
+    @apply relative overflow-hidden rounded-lg p-3 transition-all duration-300;
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-card);
+  }
+  
+  .achievement-badge.gold {
+    @apply border-2;
+    border-color: hsl(var(--achievement-gold));
+    box-shadow: var(--shadow-achievement);
+  }
+  
+  .achievement-badge.silver {
+    @apply border-2;
+    border-color: hsl(var(--achievement-silver));
+  }
+  
+  .achievement-badge.bronze {
+    @apply border-2;
+    border-color: hsl(var(--achievement-bronze));
+  }
+
+  /* Progress Bars */
+  .progress-excellent {
+    background-color: hsl(var(--progress-excellent));
+  }
+  
+  .progress-good {
+    background-color: hsl(var(--progress-good));
+  }
+  
+  .progress-average {
+    background-color: hsl(var(--progress-average));
+  }
+  
+  .progress-poor {
+    background-color: hsl(var(--progress-poor));
+  }
+
+  /* Card Animations */
+  .card-hover {
+    @apply transition-all duration-300 hover:scale-[1.02] hover:shadow-lg;
+    box-shadow: var(--shadow-card);
+  }
+  
+  .card-hover:hover {
+    box-shadow: var(--shadow-glow);
+  }
+
+  /* Pulse Animation for Notifications */
+  .pulse-glow {
+    animation: pulse-glow 2s infinite;
+  }
+  
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 10px hsl(var(--primary) / 0.3);
+    }
+    50% {
+      box-shadow: 0 0 20px hsl(var(--primary) / 0.6);
+    }
+  }
+
+  /* Entry Animations */
+  .slide-in-up {
+    animation: slide-in-up 0.6s ease-out;
+  }
+  
+  @keyframes slide-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .fade-in-delay {
+    animation: fade-in-delay 0.8s ease-out;
+  }
+  
+  @keyframes fade-in-delay {
+    0% {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    60% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Loading Animation */
+  .loading-gear {
+    animation: loading-gear 2s linear infinite;
+  }
+  
+  @keyframes loading-gear {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes slide-in-right {
+    from {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .animate-slide-in-right {
+    animation: slide-in-right 0.3s ease-out;
+  }
+
+  @keyframes width-reduce {
+    from {
+      width: 100%;
+    }
+    to {
+      width: 0%;
+    }
   }
 }
