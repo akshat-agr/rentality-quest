@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { BarChart3, Package, Calendar, Settings, Bell, Trophy, Award } from 'lucide-react';
+import { BarChart3, Package, Trophy, Award, Bell } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Navigation = ({ activeTab, onTabChange, notifications }) => {
@@ -9,9 +9,7 @@ const Navigation = ({ activeTab, onTabChange, notifications }) => {
     { id: 'dashboard', label: 'Dashboard', icon: BarChart3 },
     { id: 'assets', label: 'Asset Library', icon: Package },
     { id: 'leaderboard', label: 'Leaderboard', icon: Trophy },
-    { id: 'badges', label: 'My Badges', icon: Award },
-    { id: 'rentals', label: 'Rental Management', icon: Calendar },
-    { id: 'settings', label: 'Settings', icon: Settings }
+    { id: 'badges', label: 'My Badges', icon: Award }
   ];
 
   const unreadCount = notifications.filter(n => !n.read).length;

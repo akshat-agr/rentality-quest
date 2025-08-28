@@ -26,20 +26,6 @@ const Index = () => {
         return <Leaderboard />;
       case 'badges':
         return <MyBadges />;
-      case 'rentals':
-        return (
-          <div className="p-6 text-center">
-            <h1 className="text-4xl font-bold text-primary mb-4">Rental Management</h1>
-            <p className="text-xl text-muted-foreground">Coming soon...</p>
-          </div>
-        );
-      case 'settings':
-        return (
-          <div className="p-6 text-center">
-            <h1 className="text-4xl font-bold text-primary mb-4">Settings</h1>
-            <p className="text-xl text-muted-foreground">Coming soon...</p>
-          </div>
-        );
       default:
         return <Dashboard />;
     }
