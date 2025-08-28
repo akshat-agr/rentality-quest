@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import { Button } from '@/components/ui/button';
-import { QrCode, RefreshCw } from 'lucide-react';
+import { RefreshCw } from 'lucide-react';
 import { equipmentTypes } from '../data/mockData';
 
 const AssetLibrary = () => {
@@ -10,10 +10,6 @@ const AssetLibrary = () => {
       {/* Header */}
       <div className="flex justify-between items-center">
         <h1 className="text-4xl font-bold text-primary slide-in-up">Asset Library</h1>
-        <Button className="pulse-glow">
-          <QrCode className="h-4 w-4 mr-2" />
-          Scan QR Code
-        </Button>
       </div>
 
       {/* Equipment Type Cards */}

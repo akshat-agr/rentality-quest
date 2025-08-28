@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { BarChart3, Package, Calendar, Settings, Bell, QrCode } from 'lucide-react';
+import { BarChart3, Package, Calendar, Settings, Bell, Trophy, Award } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Navigation = ({ activeTab, onTabChange, notifications }) => {
@@ -8,6 +8,8 @@ const Navigation = ({ activeTab, onTabChange, notifications }) => {
   const navItems = [
     { id: 'dashboard', label: 'Dashboard', icon: BarChart3 },
     { id: 'assets', label: 'Asset Library', icon: Package },
+    { id: 'leaderboard', label: 'Leaderboard', icon: Trophy },
+    { id: 'badges', label: 'My Badges', icon: Award },
     { id: 'rentals', label: 'Rental Management', icon: Calendar },
     { id: 'settings', label: 'Settings', icon: Settings }
   ];
@@ -97,11 +99,6 @@ const Navigation = ({ activeTab, onTabChange, notifications }) => {
               </div>
             )}
           </div>
-
-          {/* QR Code Scanner */}
-          <Button variant="outline" size="icon">
-            <QrCode className="w-5 h-5" />
-          </Button>
 
           {/* User Avatar */}
           <div className="w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-semibold">

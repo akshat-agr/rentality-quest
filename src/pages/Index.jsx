@@ -3,6 +3,8 @@ import LoadingScreen from '../components/LoadingScreen';
 import Navigation from '../components/Navigation';
 import Dashboard from '../components/Dashboard';
 import AssetLibrary from '../components/AssetLibrary';
+import Leaderboard from '../components/Leaderboard';
+import MyBadges from '../components/MyBadges';
 import { mockNotifications } from '../data/mockData';
 
 const Index = () => {
@@ -20,6 +22,10 @@ const Index = () => {
         return <Dashboard />;
       case 'assets':
         return <AssetLibrary />;
+      case 'leaderboard':
+        return <Leaderboard />;
+      case 'badges':
+        return <MyBadges />;
       case 'rentals':
         return (
           <div className="p-6 text-center">
